@@ -1,0 +1,71 @@
+package com.example.lcvdopenglold;
+
+import javax.microedition.khronos.opengles.GL10;
+
+import com.twicecircled.spritebatcher.Drawer;
+import com.twicecircled.spritebatcher.SpriteBatcher;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ConfigurationInfo;
+import android.graphics.Rect;
+import android.opengl.GLSurfaceView;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
+
+public class MainActivity extends Activity implements Drawer{
+
+	Rect src1 = new Rect(0,0,128,128);
+	Rect src2 = new Rect(128,0,256,128);
+	Rect src3 = new Rect(256,0,384,128);
+	//Rect dst1 = new Rect(0,0,128,128);
+	float timenow,deltatime,timelast;
+	int image_num = 0;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		GLSurfaceView glSurf = new GLSurfaceView(this);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
+        setContentView(glSurf);
+        
+        int[] resourceIds = new int[] {R.drawable.test};
+        
+        glSurf.setRenderer(new SpriteBatcher(this, resourceIds, this));
+
+		
+	}
+
+	@Override
+	public void onDrawFrame(GL10 gl, SpriteBatcher sb) {
+		timenow = System.nanoTime()/1000000.0f;  //capture the time once in miliseconds
+	    deltatime = timenow-timelast;
+	    if (image_num == 0){
+	    	sb.draw(R.drawable.test, src1, new Rect(0,0,sb.getViewWidth(),sb.getViewHeight()));
+	    	image_num++;
+	    }
+	    else if (image_num == 1 ){
+	    	sb.draw(R.drawable.test, src3, new Rect(0,0,sb.getViewWidth(),sb.getViewHeight()));
+	    	image_num++;
+	    }
+	    else {
+	    	sb.draw(R.drawable.test, src2, new Rect(0,0,sb.getViewWidth(),sb.getViewHeight()));
+	    	image_num = 0;
+	    }
+		
+	    Log.v("FrameTime","Millis between this frame and prev: "+(deltatime));
+		timelast = timenow;
+		
+	}
+
+	
+}
