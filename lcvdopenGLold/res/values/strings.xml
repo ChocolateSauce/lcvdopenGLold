@@ -1,5 +1,5 @@
 <resources>
 
     <string name="app_name">lcvdopenGLold</string>
-
+	<string name="animation_sprite">/sdcard0/Downloads/animation_sprite/</string>
 </resources>
