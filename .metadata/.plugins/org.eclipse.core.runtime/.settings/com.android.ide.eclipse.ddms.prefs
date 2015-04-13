@@ -1,3 +1,4 @@
+com.android.ide.eclipse.ddms.timeOut=12000
 ddms.logcat.auotmonitor.level=error
 ddms.logcat.automonitor.userprompt=true
 eclipse.preferences.version=1
@@ -8,3 +9,4 @@ logcat.view.colsize.TID=74
 logcat.view.colsize.Tag=154
 logcat.view.colsize.Text=819
 logcat.view.colsize.Time=203
+logcat.view.filters.list=name\: 'framtime', tag\: 'FrameTime', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'image path', tag\: 'imagePath', text\: '', pid\: '', app\: '', level\: 'verbose', 

@@ -20,9 +20,9 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements Drawer{
 
-	Rect src1 = new Rect(0,0,256,456);
-	Rect src2 = new Rect(256,0,512,456);
-	Rect src3 = new Rect(512,0,768,456);
+	Rect src1 = new Rect(0,0,128,128);
+	Rect src2 = new Rect(128,0,256,128);
+	Rect src3 = new Rect(256,0,384,128);
 	//Rect dst1 = new Rect(0,0,128,128);
 	float timenow,deltatime,timelast;
 	int image_num = 0;
@@ -51,16 +51,14 @@ public class MainActivity extends Activity implements Drawer{
         setContentView(glSurf);
         
     	File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/animation_sprite");
-    	
-    	Log.v("imagePath","Found path: "+(path.toString()));
-    	
+
     	if(path.exists() && path.isDirectory()) {
             Toast.makeText(MainActivity.this, "SD card images", Toast.LENGTH_SHORT).show();
             resourceIds = new int[] {R.string.animation_sprite};
     	} else
     		resourceIds = new int[] {R.drawable.test2};
         
-    	
+
         
         glSurf.setRenderer(new SpriteBatcher(this, resourceIds, this));
 
