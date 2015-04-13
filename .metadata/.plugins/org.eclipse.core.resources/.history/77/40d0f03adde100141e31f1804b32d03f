@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements Drawer{
             Toast.makeText(MainActivity.this, "SD card images", Toast.LENGTH_SHORT).show();
             resourceIds = new int[] {R.string.animation_sprite};
     	} else
-    		resourceIds = new int[] {R.drawable.test_six};
+    		resourceIds = new int[] {R.drawable.test2};
         
     	
         
@@ -76,25 +76,18 @@ public class MainActivity extends Activity implements Drawer{
 	    deltatime = timenow-timelast;
 	    if (!pause) {
 			if (image_num == 0) {
-				sb.draw(R.drawable.test_six, src1, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
-				image_num++;
-			} else if (image_num == 1) {
-				sb.draw(R.drawable.test_six, src2, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
-				image_num++;
-			} else if (image_num == 2) {
-				sb.draw(R.drawable.test_six, src3, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
+				sb.draw(R.drawable.test2, src1, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
 			} else if (image_num == 3) {
-				sb.draw(R.drawable.test_six, src4, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
+				sb.draw(R.drawable.test2, src2, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
-			} else if (image_num == 4) {
-					sb.draw(R.drawable.test_six, src5, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
-					image_num++;
 			} else {
-				sb.draw(R.drawable.test_six, src6, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
-				image_num = 0;
+				sb.draw(R.drawable.test2, src3, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
+				if (image_num == 4)
+					image_num = 0;
+				else
+					image_num++;
 			}
-			
 		}
 		Log.v("FrameTime","Millis between this frame and prev: "+(deltatime));
 		timelast = timenow;
