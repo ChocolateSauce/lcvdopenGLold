@@ -80,7 +80,7 @@ public class MainActivity extends Activity implements Drawer{
 				image_num++;
 			} else {
 				sb.draw(R.drawable.test2, src3, new Rect(0, 0,sb.getViewWidth(), sb.getViewHeight()));
-				if (image_num == 5)
+				if (image_num == 4)
 					image_num = 0;
 				else
 					image_num++;
